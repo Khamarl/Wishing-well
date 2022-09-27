@@ -1,7 +1,10 @@
 const express = require("express");
 const cors = require("cors");
 const logRoute = require("./logRoute");
-const wishes = require("./wishes");
+let wishes = require("./wishes");
+
+
+let wishesId = wishes.length;
 
 const app = express();
 app.use(express.json());
@@ -25,12 +28,17 @@ app.get("/favourites", (req, res) => {
     res.send(getFavourite)
 });
 
-// app.get("/addwish", (req, res) => {
+app.post("/addwish", (req, res) => {
 
-//     //
-//     const wishData = req.body;
+    //get data from user and hold it in a const 
+    const wishData = req.body;
 
-// })
+    wishData["id"] = wishesId
+    wishData["votes"] = 0
+    
+    wishes.push(wishData)
+
+})
 
 
 module.exports = app;
