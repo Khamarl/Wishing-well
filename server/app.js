@@ -28,15 +28,18 @@ app.get("/favourites", (req, res) => {
     res.send(getFavourite)
 });
 
-app.post("/addwish", (req, res) => {
+app.post("/wishes", (req, res) => {
 
     //get data from user and hold it in a const 
     const wishData = req.body;
 
     wishData["id"] = wishesId
     wishData["votes"] = 0
+    wishesId += 1;
     
     wishes.push(wishData)
+
+    res.status(201).send(wishData)
 
 })
 
