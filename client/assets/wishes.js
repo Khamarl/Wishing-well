@@ -20,25 +20,15 @@ const showWishes = async () => {
     wishes.forEach(wish => {
 
         const element = document.createElement("li")
+        element.textContent = wish["wish"];
 
-        const link = document.createElement("a");
-        link.textContent = wish["name"];
-        link.href = `wishes.html?:id${wish['id']}`
-        element.appendChild(link)
+        const button = document.createElement("button");
+        button.textContent = "Vote for this wish";
+        button.style.margin = "20px"
+        element.appendChild(button)
+      
         wishlist.appendChild(element)
     })
-//    // create html elements for each wish using for each loop
-//    wishes.forEach(wish => {
-//     console.log(wish)
-//     // const name = document.createElement("h3");
-//     const element = document.createElement("li")
-
-//     // name.textContent = wish["name"]
-//     element.textContent = wish["wish"]
-
-//     // wishlist.appendChild(name)
-//     wishlist.appendChild(element)
-// });
  
 }
     
