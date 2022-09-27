@@ -14,7 +14,8 @@ const createNewWish = async (e) => {
     // creates object that will add to database of wishes
     const wishInfo = {
         
-        wish: e.target.wish.value
+        wish: e.target.wish.value,
+        name: e.target.name.value
     }
     console.log(wishInfo)
 
@@ -28,7 +29,7 @@ const createNewWish = async (e) => {
     }
 
     // Use fetch to post JSON data 
-    const response = await fetch("http://localhost:5000/wishes", options).then((response) => response.json())
+    const response = await fetch("http://localhost:5000/wishes", options).then((res) => res.json())
     .then((wishInfo) => {
       console.log('Success:', wishInfo);
     })
