@@ -18,15 +18,19 @@ const showWishes = async () => {
     console.log(wishes)
 
     wishes.forEach(wish => {
-
+        // for each wish add a new list item with two boxes
         const element = document.createElement("li")
         element.textContent = wish["wish"];
 
         const button = document.createElement("button");
-        button.textContent = "Vote for this wish";
+        button.textContent = "Vote";
         button.style.margin = "20px"
         element.appendChild(button)
-      
+        const secondButton = document.createElement("button");
+        secondButton.textContent = "Deny";
+        secondButton.style.margin = "20px"
+        element.appendChild(secondButton)
+      // append to html 
         wishlist.appendChild(element)
     })
  
