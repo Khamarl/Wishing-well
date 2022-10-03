@@ -57,4 +57,53 @@ app.get("/wishes/:id", (req, res) => {
     }
 })
 
+// app.post("/wishes/:id", (req, res) => {
+//     // get id of wish
+//     const id = parseInt(req.params.id)
+//     //console.log(id)
+//     let success = 0
+
+//     wishes.forEach(w => {
+//         //if id of wish is the same as id in for each loop
+//         if(w.id == id){
+//             if(req.body.votes == "grant") {
+//                 console.log(w.votes)
+//                 w.votes += 1
+//                 success = 1
+//                 res.status(201).send({votes:w.votes})  
+//             }else
+//             //increase number of votes by 1
+//             console.log(w.deny)
+//             w.deny += 1
+//             success = 1
+//             res.status(201).send({denial:w.deny})
+//         }
+//     })
+    
+//     // if (success = 0){
+//     //     res.status(404).send({error : "Unable to locate a link or update wish"})
+//     // }
+// })
+
+app.post("/wishes/:id", (req, res) => {
+    // get id of wish
+    const id = parseInt(req.params.id)
+    //console.log(id)
+    let success = 0
+
+    wishes.forEach(w => {
+        //if id of wish is the same as id in for each loop
+        if(w.id == id){
+            //increase number of votes by 1
+            console.log(w.denial)
+            w.denial += 1
+            success = 1
+            res.status(201).send({denial:w.denial})
+        }
+    })
+    
+    // if (success = 0){
+    //     res.status(404).send({error : "Unable to locate a link or update wish"})
+    // }
+})
 module.exports = app;

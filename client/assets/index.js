@@ -37,7 +37,7 @@ const createNewWish = async (e) => {
 
     if(response.status == 201) {
         alert("POOF! Your wish has been granted");
-        window.location.assign("");
+        window.location.reload();
      }
 }
 
